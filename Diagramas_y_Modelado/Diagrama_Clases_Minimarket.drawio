@@ -1,0 +1,80 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Minimarket UML" id="uml_clean">
+    <mxGraphModel dx="1600" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="800" background="#FAFBFD">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Title -->
+        <mxCell id="title" value="&lt;b&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;Minimarket El Ahorro — Diagrama de Clases UML&lt;/font&gt;&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=#18263E;fontColor=#ffffff;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="1520" height="45" as="geometry" />
+        </mxCell>
+
+        <!-- Carrito -->
+        <mxCell id="cls_carrito" value="&lt;p style=&quot;margin:0px;padding:5px;text-align:center;&quot;&gt;&lt;b&gt;Carrito&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0px;margin-left:8px;text-align:left;font-family:Consolas;font-size:11px;&quot;&gt;- items: ArrayList&amp;lt;ItemVentaCarrito&amp;gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0px;margin-left:8px;text-align:left;font-family:Consolas;font-size:11px;&quot;&gt;+ agregar(nuevo: ItemVentaCarrito): void&lt;br/&gt;+ buscarPorNombre(nombre: String): ItemVentaCarrito&lt;br/&gt;+ eliminar(indice: int): void&lt;br/&gt;+ calcularSubtotal(): double&lt;br/&gt;+ calcularVuelto(montoRecibido: double): double&lt;br/&gt;+ generarComprobante(num, met, rec, vuel): ComprobantePago&lt;br/&gt;+ vaciar(): void&lt;br/&gt;+ estaVacio(): boolean&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;strokeColor=#324152;fillColor=#FFFFFF;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="50" y="90" width="500" height="215" as="geometry" />
+        </mxCell>
+
+        <!-- ColaImpresion -->
+        <mxCell id="cls_cola" value="&lt;p style=&quot;margin:0px;padding:5px;text-align:center;&quot;&gt;&lt;b&gt;ColaImpresion&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0px;margin-left:8px;text-align:left;font-family:Consolas;font-size:11px;&quot;&gt;- cola: Queue&amp;lt;ComprobantePago&amp;gt;&lt;br/&gt;- registro: HashMap&amp;lt;String, ComprobantePago&amp;gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0px;margin-left:8px;text-align:left;font-family:Consolas;font-size:11px;&quot;&gt;+ encolar(comprobante: ComprobantePago): void&lt;br/&gt;+ procesarSiguiente(): ComprobantePago&lt;br/&gt;+ buscarPorNumero(num: String): ComprobantePago&lt;br/&gt;+ verProximo(): ComprobantePago&lt;br/&gt;+ estaVacia(): boolean&lt;br/&gt;+ cantidadPendiente(): int&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;strokeColor=#324152;fillColor=#FFFFFF;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="50" y="350" width="500" height="185" as="geometry" />
+        </mxCell>
+
+        <!-- ItemVentaCarrito -->
+        <mxCell id="cls_item" value="&lt;p style=&quot;margin:0px;padding:5px;text-align:center;&quot;&gt;&lt;b&gt;ItemVentaCarrito&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0px;margin-left:8px;text-align:left;font-family:Consolas;font-size:11px;&quot;&gt;- nombreProducto: String&lt;br/&gt;- cantidad: int&lt;br/&gt;- precioUnitario: double&lt;br/&gt;- subtotal: double&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0px;margin-left:8px;text-align:left;font-family:Consolas;font-size:11px;&quot;&gt;+ obtenerProductosDisponibles(): ArrayList&amp;lt;ItemVentaCarrito&amp;gt;&lt;br/&gt;+ toString(): String&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;strokeColor=#324152;fillColor=#FFFFFF;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="640" y="90" width="480" height="155" as="geometry" />
+        </mxCell>
+
+        <!-- Main -->
+        <mxCell id="cls_main" value="&lt;p style=&quot;margin:0px;padding:5px;text-align:center;&quot;&gt;&lt;b&gt;Main&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0px;margin-left:8px;text-align:left;font-family:Consolas;font-size:11px;&quot;&gt;+ main(args: String[]): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;strokeColor=#324152;fillColor=#FFFFFF;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="90" width="340" height="65" as="geometry" />
+        </mxCell>
+
+        <!-- Usuario -->
+        <mxCell id="cls_usuario" value="&lt;p style=&quot;margin:0px;padding:5px;text-align:center;&quot;&gt;&lt;b&gt;Usuario&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0px;margin-left:8px;text-align:left;font-family:Consolas;font-size:11px;&quot;&gt;- username: String&lt;br/&gt;- password: String&lt;br/&gt;- rol: String&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0px;margin-left:8px;text-align:left;font-family:Consolas;font-size:11px;&quot;&gt;+ autenticar(user: String, pass: String): boolean&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;strokeColor=#324152;fillColor=#FFFFFF;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="210" width="340" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- ComprobantePago -->
+        <mxCell id="cls_boleta" value="&lt;p style=&quot;margin:0px;padding:5px;text-align:center;&quot;&gt;&lt;b&gt;ComprobantePago&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0px;margin-left:8px;text-align:left;font-family:Consolas;font-size:11px;&quot;&gt;- numeroComprobante: String&lt;br/&gt;- fechaHora: String&lt;br/&gt;- metodoPago: String&lt;br/&gt;- total: double&lt;br/&gt;- montoRecibido: double&lt;br/&gt;- vuelto: double&lt;br/&gt;- items: ArrayList&amp;lt;ItemVentaCarrito&amp;gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0px;margin-left:8px;text-align:left;font-family:Consolas;font-size:11px;&quot;&gt;+ generarBoleta(): String&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;strokeColor=#324152;fillColor=#FFFFFF;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="640" y="350" width="480" height="195" as="geometry" />
+        </mxCell>
+
+        <!-- ================= CONNECTORS ================= -->
+        <!-- Carrito -> ItemVentaCarrito (Agregacion) -->
+        <mxCell id="conn_carrito_item" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.37;exitDx=0;exitDy=0;strokeColor=#233755;strokeWidth=2;startArrow=diamond;startFill=0;endArrow=none;" edge="1" parent="1" source="cls_carrito" target="cls_item">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="mult_c1" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;fontStyle=1;" vertex="1" connectable="0" parent="conn_carrito_item">
+          <mxGeometry x="-0.7" y="1" relative="1" as="geometry"><mxPoint y="-10" as="offset" /></mxGeometry>
+        </mxCell>
+        <mxCell id="mult_c2" value="0..*" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;fontStyle=1;" vertex="1" connectable="0" parent="conn_carrito_item">
+          <mxGeometry x="0.7" y="1" relative="1" as="geometry"><mxPoint y="-10" as="offset" /></mxGeometry>
+        </mxCell>
+
+        <!-- ColaImpresion -> ComprobantePago (Agregacion) -->
+        <mxCell id="conn_cola_boleta" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;strokeColor=#233755;strokeWidth=2;startArrow=diamond;startFill=0;endArrow=none;" edge="1" parent="1" source="cls_cola" target="cls_boleta">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="mult_q1" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;fontStyle=1;" vertex="1" connectable="0" parent="conn_cola_boleta">
+          <mxGeometry x="-0.7" y="1" relative="1" as="geometry"><mxPoint y="-10" as="offset" /></mxGeometry>
+        </mxCell>
+        <mxCell id="mult_q2" value="0..*" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;fontStyle=1;" vertex="1" connectable="0" parent="conn_cola_boleta">
+          <mxGeometry x="0.7" y="1" relative="1" as="geometry"><mxPoint y="-10" as="offset" /></mxGeometry>
+        </mxCell>
+
+        <!-- ComprobantePago -> ItemVentaCarrito (Composicion) -->
+        <mxCell id="conn_boleta_item" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;strokeColor=#233755;strokeWidth=2;startArrow=diamond;startFill=1;endArrow=none;" edge="1" parent="1" source="cls_boleta" target="cls_item">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="mult_b1" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;fontStyle=1;" vertex="1" connectable="0" parent="conn_boleta_item">
+          <mxGeometry x="-0.65" y="1" relative="1" as="geometry"><mxPoint x="12" y="2" as="offset" /></mxGeometry>
+        </mxCell>
+        <mxCell id="mult_b2" value="1..*" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;fontStyle=1;" vertex="1" connectable="0" parent="conn_boleta_item">
+          <mxGeometry x="0.65" y="1" relative="1" as="geometry"><mxPoint x="12" y="2" as="offset" /></mxGeometry>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
