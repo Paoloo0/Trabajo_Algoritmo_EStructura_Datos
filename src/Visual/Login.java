@@ -1,16 +1,23 @@
 package Visual;
 
 import Modelo.Usuario;
+import java.util.HashMap;
 import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {
 
-    // Credenciales del sistema
-    private Usuario usuarioAutorizado = new Usuario("minimarket", "123", "Cajero");
+    // Estructura de datos: Tabla Hash (HashMap) para almacenar y autenticar usuarios en O(1)
+    private HashMap<String, Usuario> usuarios = new HashMap<>();
 
     public Login() {
         initComponents();
         setLocationRelativeTo(null);
+        inicializarUsuarios();
+    }
+
+    private void inicializarUsuarios() {
+        // Carga de credenciales del cajero en la estructura de datos
+        usuarios.put("cajero", new Usuario("cajero", "123", "Cajero"));
     }
 
     private void intentarAcceso() {
@@ -25,8 +32,9 @@ public class Login extends javax.swing.JFrame {
             return;
         }
 
-        // Si es correcto, ingresa directamente sin popup
-        if (usuarioAutorizado.autenticar(user, pass)) {
+        // Búsqueda directa en la estructura de datos HashMap O(1)
+        Usuario usuarioEncontrado = usuarios.get(user);
+        if (usuarioEncontrado != null && usuarioEncontrado.autenticar(user, pass)) {
             new Principal().setVisible(true);
             this.dispose();
         } else {

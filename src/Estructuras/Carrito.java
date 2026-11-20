@@ -29,7 +29,7 @@ public class Carrito {
         return null;
     }
 
-    // RF1 (Create): Agrega un producto al comprobante (si ya existe, acumula cantidad)
+    // RF2 (Create): Agrega un producto al comprobante (si ya existe, acumula cantidad)
     public void agregar(ItemVentaCarrito nuevo) {
         if (nuevo == null) {
             return;
@@ -43,7 +43,7 @@ public class Carrito {
         }
     }
 
-    // RF3 (Update): Modifica la cantidad de unidades de un producto ingresado
+    // RF2 (Update): Modifica la cantidad de unidades de un producto ingresado
     public void modificarCantidad(int indice, int nuevaCantidad) {
         if (indice >= 0 && indice < items.size()) {
             if (nuevaCantidad <= 0) {
@@ -54,7 +54,7 @@ public class Carrito {
         }
     }
 
-    // RF4 (Delete): Elimina un producto por su posición en la tabla del comprobante
+    // RF2 (Delete): Elimina un producto por su posición en la tabla del comprobante
     public void eliminar(int indice) {
         if (indice >= 0 && indice < items.size()) {
             items.remove(indice);
@@ -75,7 +75,7 @@ public class Carrito {
         return montoRecibido - calcularSubtotal();
     }
 
-    // RF5 (Create / Update): Registra la modalidad de pago y el monto recibido (Estructura: HashMap<String, Object>)
+    // RF3 (Create / Update): Registra la modalidad de pago y el monto recibido (Estructura: HashMap<String, Object>)
     public HashMap<String, Object> registrarPago(String metodoPago, double montoRecibido) {
         double total = calcularSubtotal();
         double vuelto = (metodoPago != null && metodoPago.equalsIgnoreCase("Efectivo")) 
@@ -89,7 +89,7 @@ public class Carrito {
         return datosPago;
     }
 
-    // Genera el comprobante de pago con los productos actuales del carrito
+    // RF4 (Create): Genera el comprobante de pago oficial con los productos actuales del comprobante
     public ComprobantePago generarComprobante(String numero, String metodoPago, double recibido, double vuelto) {
         String fechaHora = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(new Date());
         double total = calcularSubtotal();
